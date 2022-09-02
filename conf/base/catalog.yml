@@ -2,3 +2,17 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+input_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/iris.csv
+
+intermediate_data:
+  type: kedro_test.io.python_csv.PythonCSV
+  filepath: data/02_intermediate/iris_small.csv
+  save_args:
+    index: false
+
+processed_data:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/iris_processed.csv
